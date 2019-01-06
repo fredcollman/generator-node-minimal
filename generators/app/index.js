@@ -28,6 +28,24 @@ module.exports = class extends Generator {
         name: "description",
         message: "Describe your package",
         default: ""
+      },
+      {
+        type: "input",
+        name: "authorName",
+        message: "Your name",
+        default: this.user.git.name()
+      },
+      {
+        type: "input",
+        name: "authorEmail",
+        message: "Your email address",
+        default: this.user.git.email()
+      },
+      {
+        type: "input",
+        name: "githubUsername",
+        message: "Your GitHub username",
+        default: await this.user.github.username()
       }
     ];
     this.props = await this.prompt(prompts);

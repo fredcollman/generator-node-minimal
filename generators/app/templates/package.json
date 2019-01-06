@@ -4,8 +4,9 @@
   "description": "<%= description %>",
   "main": "dist/bundle.cjs.js",
   "module": "dist/bundle.esm.js",
-  "author": "Fred Collman <fredcollman@gmail.com>",
+  "author": "<%= authorName %> <<%= authorEmail %>>",
   "license": "MIT",
+  "repository": "<%= githubUsername %>/<%= name %>",
   "bin": {
     "<%= name %>": "bin/main.js"
   },

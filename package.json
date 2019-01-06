@@ -1,6 +1,6 @@
 {
   "name": "@fred.c/generator-node-minimal",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "Simple Node.js config to get up and running quickly",
   "homepage": "",
   "author": {

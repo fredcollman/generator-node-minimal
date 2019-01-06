@@ -12,7 +12,8 @@
     "test": "mocha src/**/*.spec.js --require @babel/register --require @babel/polyfill",
     "lint": "eslint src/**/*.js",
     "compile": "babel src/ --out-dir lib/",
-    "prepublish": "yarn run compile"
+    "prepublish": "yarn run compile",
+    "postinstall": "flow-typed install"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",

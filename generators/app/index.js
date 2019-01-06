@@ -42,6 +42,10 @@ module.exports = class extends Generator {
     dotfiles.forEach(file =>
       this.fs.copy(this.templatePath(file), this.destinationPath(`.${file}`))
     );
+    this.fs.copy(
+      this.templatePath("rollup.config.js"),
+      this.destinationPath("rollup.config.js")
+    );
     this.fs.copyTpl(
       this.templatePath("src/_utils.js"),
       this.destinationPath("src/_utils.js"),

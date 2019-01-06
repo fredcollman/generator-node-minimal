@@ -2,7 +2,8 @@
   "name": "<%= name %>",
   "version": "1.0.0",
   "description": "<%= description %>",
-  "main": "lib/index.js",
+  "main": "dist/bundle.cjs.js",
+  "module": "dist/bundle.esm.js",
   "author": "Fred Collman <fredcollman@gmail.com>",
   "license": "MIT",
   "bin": {
@@ -11,7 +12,7 @@
   "scripts": {
     "test": "mocha src/**/*.spec.js --require @babel/register --require @babel/polyfill",
     "lint": "eslint src/**/*.js",
-    "compile": "babel src/ --out-dir lib/",
+    "compile": "rollup --config",
     "prepublish": "yarn run compile",
     "postinstall": "flow-typed install"
   },
@@ -33,6 +34,7 @@
     "flow-bin": "^0.89.0",
     "mocha": "^5.2.0",
     "prettier": "^1.15.3",
-    "regenerator-runtime": "^0.13.1"
+    "regenerator-runtime": "^0.13.1",
+    "rollup": "^1.0.2"
   }
 }

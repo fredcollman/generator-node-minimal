@@ -1,3 +1,3 @@
 #!/usr/bin/env node
 // @flow
-console.log(require("../lib/").default());
+console.log(require("../dist/bundle.cjs")());

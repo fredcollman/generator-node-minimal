@@ -1,0 +1,9 @@
+{
+  "generator-node": {
+    "promptValues": {
+      "authorName": "Fred Collman",
+      "authorEmail": "fredcollman@gmail.com",
+      "authorUrl": ""
+    }
+  }
+}

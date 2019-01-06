@@ -47,6 +47,11 @@ module.exports = class extends Generator {
       this.destinationPath("src/_utils.js"),
       { appname: this.appname }
     );
+    this.fs.copyTpl(
+      this.templatePath("src/_utils.spec.js"),
+      this.destinationPath("src/_utils.spec.js"),
+      { appname: this.appname }
+    );
     this.fs.copy(
       this.templatePath("src/index.js"),
       this.destinationPath("src/index.js")

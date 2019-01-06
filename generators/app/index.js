@@ -8,6 +8,7 @@ const dotfiles = [
   "eslintrc.js",
   "flowconfig",
   "gitignore",
+  "npmignore",
   "prettierrc.js"
 ];
 
@@ -42,9 +43,17 @@ module.exports = class extends Generator {
       this.fs.copy(this.templatePath(file), this.destinationPath(`.${file}`))
     );
     this.fs.copyTpl(
-      this.templatePath("src/index.js"),
-      this.destinationPath("src/index.js"),
+      this.templatePath("src/_utils.js"),
+      this.destinationPath("src/_utils.js"),
       { appname: this.appname }
+    );
+    this.fs.copy(
+      this.templatePath("src/index.js"),
+      this.destinationPath("src/index.js")
+    );
+    this.fs.copy(
+      this.templatePath("bin/main.js"),
+      this.destinationPath("bin/main.js")
     );
   }
 

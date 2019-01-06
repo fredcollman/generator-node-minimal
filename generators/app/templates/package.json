@@ -2,12 +2,17 @@
   "name": "<%= name %>",
   "version": "1.0.0",
   "description": "<%= description %>",
-  "main": "src/index.js",
+  "main": "lib/index.js",
   "author": "Fred Collman <fredcollman@gmail.com>",
   "license": "MIT",
+  "bin": {
+    "<%= name %>": "bin/main.js"
+  },
   "scripts": {
     "test": "mocha src/**/*.spec.js --require @babel/register --require @babel/polyfill",
-    "lint": "eslint src/**/*.js"
+    "lint": "eslint src/**/*.js",
+    "compile": "babel src/ --out-dir lib/",
+    "prepublish": "yarn run compile"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",

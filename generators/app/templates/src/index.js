@@ -1,4 +1,4 @@
 // @flow
-const main = () => "Welcome to <%= appname %>";
+import { getMessage } from "./_utils";
 
-export default main;
+export default getMessage;

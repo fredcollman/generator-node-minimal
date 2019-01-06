@@ -16,26 +16,5 @@
     "compile": "rollup --config",
     "libdefs": "flow-typed install",
     "prepublishOnly": "yarn run compile && yarn run test"
-  },
-  "devDependencies": {
-    "@babel/cli": "^7.2.3",
-    "@babel/core": "^7.2.2",
-    "@babel/node": "^7.2.2",
-    "@babel/polyfill": "^7.2.5",
-    "@babel/preset-env": "^7.2.3",
-    "@babel/preset-flow": "^7.0.0",
-    "@babel/register": "^7.0.0",
-    "babel-core": "^7.0.0-bridge.0",
-    "babel-eslint": "^10.0.1",
-    "babel-jest": "^23.6.0",
-    "eslint": "^5.12.0",
-    "eslint-config-prettier": "^3.3.0",
-    "eslint-plugin-flowtype": "^3.2.0",
-    "eslint-plugin-prettier": "^3.0.1",
-    "flow-bin": "^0.89.0",
-    "mocha": "^5.2.0",
-    "prettier": "^1.15.3",
-    "regenerator-runtime": "^0.13.1",
-    "rollup": "^1.0.2"
   }
 }

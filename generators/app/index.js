@@ -1,8 +1,6 @@
 "use strict";
 const path = require("path");
 const Generator = require("yeoman-generator");
-const chalk = require("chalk");
-const yosay = require("yosay");
 
 const dotfiles = [
   "babelrc",
@@ -94,6 +92,36 @@ module.exports = class extends Generator {
   }
 
   install() {
-    this.yarnInstall();
+    this.yarnInstall(
+      [
+        "@babel/cli",
+        "@babel/core",
+        "@babel/node",
+        "@babel/polyfill",
+        "@babel/preset-env",
+        "@babel/preset-flow",
+        "@babel/register",
+        "babel-core@^7.0.0-bridge.0",
+        "babel-eslint",
+        "babel-jest",
+        "eslint",
+        "eslint-config-prettier",
+        "eslint-plugin-flowtype",
+        "eslint-plugin-prettier",
+        "flow-bin",
+        "mocha",
+        "prettier",
+        "regenerator-runtime",
+        "rollup"
+      ],
+      { dev: true }
+    );
+  }
+
+  end() {
+    this.spawnCommandSync("yarn", ["run", "libdefs"]);
+    this.spawnCommandSync("yarn", ["run", "compile"]);
+    this.spawnCommandSync("yarn", ["run", "test"]);
+    this.log("Setup completely successfully");
   }
 };

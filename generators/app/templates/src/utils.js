@@ -1,4 +1,4 @@
 // @flow
-const getMessage = () => "Welcome to <%= appname %>";
+const getMessage = () => "Welcome to <%= name %>";
 
 export { getMessage };

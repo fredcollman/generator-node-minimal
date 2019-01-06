@@ -8,14 +8,14 @@
   "license": "MIT",
   "repository": "<%= githubUsername %>/<%= name %>",
   "bin": {
-    "<%= name %>": "bin/main.js"
+    "<%= name.split('/').pop() %>": "bin/main.js"
   },
   "scripts": {
     "test": "mocha src/**/*.spec.js --require @babel/register --require @babel/polyfill",
     "lint": "eslint src/**/*.js",
     "compile": "rollup --config",
-    "prepublish": "yarn run compile",
-    "postinstall": "flow-typed install"
+    "libdefs": "flow-typed install",
+    "prepublishOnly": "yarn run compile && yarn run test"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",

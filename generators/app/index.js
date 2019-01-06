@@ -13,6 +13,14 @@ const dotfiles = [
 ];
 
 module.exports = class extends Generator {
+  packageName() {
+    let name = this.fs.readJSON(this.destinationPath("package.json"), {}).name;
+    if (!name) {
+      name = path.basename(this.destinationRoot());
+    }
+    return name.replace(/\s+/g, "-");
+  }
+
   async prompting() {
     this.log("Let's set up a new Node.js package!");
 
@@ -21,7 +29,7 @@ module.exports = class extends Generator {
         type: "input",
         name: "name",
         message: "Your package name",
-        default: this.appname.replace(/\s+/g, "-")
+        default: this.packageName()
       },
       {
         type: "input",
@@ -67,12 +75,12 @@ module.exports = class extends Generator {
     this.fs.copyTpl(
       this.templatePath("src/utils.js"),
       this.destinationPath("src/utils.js"),
-      { appname: this.appname }
+      this.props
     );
     this.fs.copyTpl(
       this.templatePath("src/utils.spec.js"),
       this.destinationPath("src/utils.spec.js"),
-      { appname: this.appname }
+      this.props
     );
     this.fs.copy(
       this.templatePath("src/index.js"),

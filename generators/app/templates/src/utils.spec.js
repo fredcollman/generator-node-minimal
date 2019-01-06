@@ -1,6 +1,6 @@
 // @flow
 import assert from "assert";
-import { getMessage } from "./_utils";
+import { getMessage } from "./utils";
 
 describe("getMessage", () => {
   it("welcomes the user", () => {

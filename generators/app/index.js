@@ -47,13 +47,13 @@ module.exports = class extends Generator {
       this.destinationPath("rollup.config.js")
     );
     this.fs.copyTpl(
-      this.templatePath("src/_utils.js"),
-      this.destinationPath("src/_utils.js"),
+      this.templatePath("src/utils.js"),
+      this.destinationPath("src/utils.js"),
       { appname: this.appname }
     );
     this.fs.copyTpl(
-      this.templatePath("src/_utils.spec.js"),
-      this.destinationPath("src/_utils.spec.js"),
+      this.templatePath("src/utils.spec.js"),
+      this.destinationPath("src/utils.spec.js"),
       { appname: this.appname }
     );
     this.fs.copy(

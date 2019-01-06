@@ -1,4 +1,4 @@
 // @flow
-import { getMessage } from "./_utils";
+import { getMessage } from "./utils";
 
 export default getMessage;

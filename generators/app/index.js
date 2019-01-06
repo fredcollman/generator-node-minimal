@@ -3,6 +3,14 @@ const Generator = require("yeoman-generator");
 const chalk = require("chalk");
 const yosay = require("yosay");
 
+const dotfiles = [
+  "babelrc",
+  "eslintrc.js",
+  "flowconfig",
+  "gitignore",
+  "prettierrc.js"
+];
+
 module.exports = class extends Generator {
   async prompting() {
     this.log("Let's set up a new Node.js package!");
@@ -30,9 +38,17 @@ module.exports = class extends Generator {
       this.destinationPath("package.json"),
       this.props
     );
+    dotfiles.forEach(file =>
+      this.fs.copy(this.templatePath(file), this.destinationPath(`.${file}`))
+    );
+    this.fs.copyTpl(
+      this.templatePath("src/index.js"),
+      this.destinationPath("src/index.js"),
+      { appname: this.appname }
+    );
   }
 
-  // install() {
-  //   this.installDependencies();
-  // }
+  install() {
+    this.yarnInstall();
+  }
 };
